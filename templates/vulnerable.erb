@@ -1,0 +1,4 @@
+<% if @cve["vulnerable"] != nil
+  vuln = @cve["vulnerable"].join(',') -%>
+<%= vuln -%>
+<% end -%>
