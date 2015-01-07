@@ -13,7 +13,7 @@ if not version_string.nil?
      version = '0'
   end
 
-  Facter.add('cve_2014_93390') do
+  Facter.add('cve_2014_9390') do
     require 'puppet'
 
     setcode do case
