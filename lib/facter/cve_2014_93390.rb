@@ -5,17 +5,17 @@
 
 version_string = Facter::Util::Resolution.exec('git version')
 
-unless version_string.nil?
-  
+if not version_string.nil?
+
   if version_string =~ /^git version ([\d\.]+)/
     version = Regexp.last_match[1]
   else
      version = '0'
   end
-  
+
   Facter.add('cve_2014_93390') do
     require 'puppet'
-    
+
     setcode do case
       when ( Puppet::Util::Package.versioncmp('1.8.5.6', version) > 0 )
         'vulnerable'
@@ -32,5 +32,4 @@ unless version_string.nil?
       end
     end
   end
-  
 end
